@@ -1,1 +1,9 @@
 // Specific CSS for your home-page
+.banner {
+  color: rgb(236, 236, 236);
+  background-image: asset-url('bg.jpg');
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+  padding-top: 50vh;
+}
