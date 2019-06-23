@@ -1,1 +1,14 @@
-<h1>category show</h1>
+<div class="container">
+  <h1><%= @category.name %></h1>
+
+  <div class="cards">
+    <% @photos.each do |photo| %>
+      <%= link_to product_path(photo) do %>
+        <div class="photo-card">
+          <img src="" alt="photo">
+          <p><%= photo.title %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

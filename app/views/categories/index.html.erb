@@ -1,1 +1,14 @@
-<h1>category index</h1>
+<div class="container">
+  <h1>Photographies par thème</h1>
+
+  <div class="cards">
+    <% @categories.each do |categ| %>
+      <%= link_to category_path(categ) do %>
+        <div class="category-cards">
+          <img src="" alt="categ first photo">
+          <p><%= categ.name %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
