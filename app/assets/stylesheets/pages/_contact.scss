@@ -1,0 +1,12 @@
+.contact {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+@media (max-width: 780px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}

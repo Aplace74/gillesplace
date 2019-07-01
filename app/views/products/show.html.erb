@@ -1,1 +1,14 @@
-<h1>product show</h1>
+<div class="container">
+  <h3 class="text-center my-4"><%= @product.title %></h3>
+  <div class="separator"></div>
+  <div class="d-flex">
+    <%= cl_image_tag @product.photo1 %>
+    <div class="description">
+      <%= humanized_money_with_symbol(@product.price) %>
+      <p><%= @product.description %></p>
+      <form action="" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </form>
+    </div>
+  </div>
+</div>

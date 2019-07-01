@@ -1,14 +1,29 @@
-<div class="banner">
-  <h2 class="m-3">Photographe de montagne</h2>
-  <a href="<%= categories_path %>" class="btn-base">Voir les photos</a>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path "https://res.cloudinary.com/dfvfkojyz/image/upload/v1561311757/hrfvgv6ukfe63o4tr853.jpg", crop: :fill %>')">
+  <div class="catch-phrase">
+    <h2 class="m-3">Photographe de montagne</h2>
+    <p>découvrez mes photos</p>
+    <a href="<%= categories_path %>" class="btn-base">Voir les photos</a>
+  </div>
 </div>
 
 <div class="container">
-  <div class="d-flex my-3">
+  <div class="landing-item">
     <div>
-      <strong>qui suis-je</strong>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, vitae?</p>
+      <%= image_tag("photo_gilles.jpg") %>
     </div>
-    <img src="" alt="gilles place">
+    <div>
+      <strong>Gilles Place</strong>
+      <p>Photographe passioné depuis toujours par la montagne</p>
+    </div>
+  </div>
+  <div class="landing-item">
+    <div>
+      <strong>Tirrages originaux</strong>
+      <p>séries limitées et numérotées sur papier machin bidule</p>
+    </div>
+    <div>
+      <%= image_tag("numerotage.jpg") %>
+      <%= image_tag("signature.jpg") %>
+    </div>
   </div>
 </div>

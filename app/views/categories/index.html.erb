@@ -1,14 +1,22 @@
 <div class="container">
-  <h1>Photographies par thème</h1>
-
+  <h1 class="my-3">Galerie de photos</h1>
+  <p>Mes tirages originaux sont imprimés par mes soins sur papier Hahnemühle FineArt baryté 325g<br><br>
+  Ils sont numérotés et signés au dos de 1 à 30 et sont livrés avec un certificat d'authenticité<br><br>
+  Ils peuvent être fournis dans des cadres bois avec passe-partout de 3mm d'épaisseur  et d'environ 5cm de tour<br>
+  (ex : Un tirage 40x60 sera dans un cadre 50x70)
+  Pour commander ou avoir plus de renseignements, n'hésitez pas à me contacter.<br><br>
+  Vous pouvez aussi vous référer à la page "Expositions", vous y trouverez les lieux où voir mes tirages.
+</p>
+  <h3 class="text-center my-4">Photographies par thème</h3>
+  <div class="separator"></div>
   <div class="cards">
     <% @categories.each do |categ| %>
-      <%= link_to category_path(categ) do %>
-        <div class="category-cards">
-          <img src="" alt="categ first photo">
-          <p><%= categ.name %></p>
-        </div>
-      <% end %>
+      <div class="category-cards">
+        <%= link_to category_path(categ) do %>
+          <%= cl_image_tag categ.products.first.photo1 %>
+          <h3 class="title"><%= categ.name %></h3>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

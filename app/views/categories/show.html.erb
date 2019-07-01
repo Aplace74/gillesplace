@@ -1,12 +1,13 @@
 <div class="container">
-  <h1><%= @category.name %></h1>
+  <h3 class="text-center my-4">Photographies par thème</h3>
+  <div class="separator"></div>
 
   <div class="cards">
     <% @photos.each do |photo| %>
       <%= link_to product_path(photo) do %>
-        <div class="photo-card">
-          <img src="" alt="photo">
-          <p><%= photo.title %></p>
+        <div class="category-cards">
+          <div class="picture" style="background-image: url('<%= cl_image_path photo.photo1 %>'); background-size: cover;"></div>
+          <h3 class="title"><%= photo.title %></h3>
         </div>
       <% end %>
     <% end %>

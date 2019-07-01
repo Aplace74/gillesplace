@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :description
       t.references :category, foreign_key: true
       t.references :type, foreign_key: true
+      t.references :category, foreign_key: true
 
       t.timestamps
     end

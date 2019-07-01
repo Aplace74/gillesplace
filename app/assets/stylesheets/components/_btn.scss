@@ -1,13 +1,12 @@
 .btn-base {
-  background-color: #E28975;
-  border: 2px solid #E28975;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid rgb(195, 117, 99);
   padding: 5px 10px;
-  // color: #6D6D6D;
-  color: rgb(236, 236, 236);
+  color: rgb(195, 117, 99);
 }
 
 .btn-base:hover {
-  background-color: rgba(0, 0, 0, 0);
-  color: #E28975;
+  background-color: rgb(195, 117, 99);
+  color: rgb(236, 236, 236);
   text-decoration: none;
 }
