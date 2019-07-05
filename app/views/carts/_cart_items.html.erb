@@ -1,0 +1,28 @@
+<% if cart.items.empty? %>
+  <div class="text-center">
+    <p><strong>vous n'avez encore rien dans votre panier</strong></p><br>
+    <%= link_to 'voir les photos', categories_path, class: "btn-base" %>
+  </div>
+<% else %>
+  <div class="cart-items">
+    <% cart.items.each do |item| %>
+      <div class="cart-item">
+        <%= cl_image_tag item.product.photo1, class: "cart-picture" %>
+        <div>
+          <p><strong><%= item.product.title %></strong></p>
+          <p><%= item.quantity %></p>
+          <p>cadre :<%= item.frame.name %></p>
+          <p>taille :<%= item.photo_size.size %></p>
+        </div>
+        <%= link_to 'supprimer', item_path(item), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+  <div class="total">
+    <% cart.items.each do |item| %>
+      <p><%= item.product.title %> X<%= item.quantity %> <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
+    <% end %>
+    <p><strong>total : </strong><%= humanized_money_with_symbol(cart.total) %></p>
+    <a href="#" class="btn btn-primary">Payer</a>
+  </div>
+<% end %>

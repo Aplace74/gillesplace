@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_070101) do
+ActiveRecord::Schema.define(version: 2019_07_03_200618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,20 @@ ActiveRecord::Schema.define(version: 2019_07_01_070101) do
     t.index ["product_id"], name: "index_available_frames_on_product_id"
   end
 
+  create_table "available_sizes", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "photo_size_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_size_id"], name: "index_available_sizes_on_photo_size_id"
+    t.index ["product_id"], name: "index_available_sizes_on_product_id"
+  end
+
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -127,6 +138,9 @@ ActiveRecord::Schema.define(version: 2019_07_01_070101) do
 
   add_foreign_key "available_frames", "frames"
   add_foreign_key "available_frames", "products"
+  add_foreign_key "available_sizes", "photo_sizes"
+  add_foreign_key "available_sizes", "products"
+  add_foreign_key "carts", "users"
   add_foreign_key "items", "carts"
   add_foreign_key "items", "frames"
   add_foreign_key "items", "photo_sizes"

@@ -6,8 +6,23 @@
     <div class="description">
       <%= humanized_money_with_symbol(@product.price) %>
       <p><%= @product.description %></p>
-      <form action="" method="post">
+      <form action="<%= items_path %>" method="post">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :cart_id, Cart.current(current_user, session).id %>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <% @product.available_frames.each do |af| %>
+          <label for="<%= af.frame.name %>"><%= af.frame.name %></label>
+          <input id="<%= af.frame.name %>" name="frame_id" type="radio" value="<%= af.frame.id %>"/>
+        <% end %>
+        <label for="photo_size_id">Dimensions</label>
+        <select id="photo_size_id" name="photo_size_id">
+          <% @product.available_sizes.each do |as| %>
+            <option value="<%= as.photo_size.id %>"><%= as.photo_size.size %></option>
+          <% end %>
+        </select>
+        <label for="quantity">Quantité</label>
+        <input type="number" id="quantity" name="quantity">
+        <%= submit_tag "Ajouter au panier", class: "btn-base" %>
       </form>
     </div>
   </div>
