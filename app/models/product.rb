@@ -3,8 +3,7 @@ class Product < ApplicationRecord
   belongs_to :type
   has_many :available_sizes
   has_many :available_frames
-  has_many :taggings
-  monetize :price_cents
+  has_many :photos, dependent: :destroy
 
-  mount_uploader :photo, PhotoUploader
+  monetize :price_cents
 end

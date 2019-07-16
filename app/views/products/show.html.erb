@@ -2,7 +2,7 @@
   <h3 class="text-center my-4"><%= @product.title %></h3>
   <div class="separator"></div>
   <div class="d-flex">
-    <%= cl_image_tag @product.photo1 %>
+    <%= cl_image_tag @product.photos.first.photo %>
     <div class="description">
       <%= humanized_money_with_symbol(@product.price) %>
       <p><%= @product.description %></p>
@@ -17,7 +17,7 @@
         <label for="photo_size_id">Dimensions</label>
         <select id="photo_size_id" name="photo_size_id">
           <% @product.available_sizes.each do |as| %>
-            <option value="<%= as.photo_size.id %>"><%= as.photo_size.size %></option>
+            <option value="<%= as.size.id %>"><%= as.size.size %></option>
           <% end %>
         </select>
         <label for="quantity">Quantité</label>

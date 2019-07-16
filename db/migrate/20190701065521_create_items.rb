@@ -4,8 +4,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :quantity
       t.references :cart, foreign_key: true
       t.references :product, foreign_key: true
-      t.references :photo_size, foreign_key: true
+      t.references :size, foreign_key: true
       t.references :frame, foreign_key: true
+      t.references :paper, foreign_key: true
 
       t.timestamps
     end

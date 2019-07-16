@@ -13,7 +13,7 @@
     <% @categories.each do |categ| %>
       <div class="category-cards">
         <%= link_to category_path(categ) do %>
-          <%= cl_image_tag categ.products.first.photo1 %>
+          <%= cl_image_tag categ.products.first.photos.first.photo %>
           <h3 class="title"><%= categ.name %></h3>
         <% end %>
       </div>

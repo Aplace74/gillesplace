@@ -6,7 +6,7 @@
     <% @photos.each do |photo| %>
       <%= link_to product_path(photo) do %>
         <div class="category-cards">
-          <%= cl_image_tag photo.photo1 %>
+          <%= cl_image_tag photo.photos.first.photo %>
           <h3 class="title"><%= photo.title %></h3>
         </div>
       <% end %>
